@@ -1,21 +1,57 @@
 #! /bin/bash -x
 
 declare -a arr
-for((i=0;i<11;i++))
+for((i=1;i<51;i++))
 do
-	arr[$i]=$((RANDOM % 900 +100))
+	value=$((RANDOM % 12 +1))
+	case $value in
+	1)
+		january=$january"  "$i
+		;;
+	2)
+		february=$february"  "$i
+		;;
+	3)
+		march=$march"  "$i
+		;;
+	4)
+		april=$april"  "$i
+		;;
+	10)
+		october=$october"  "$i
+		;;
+	5)
+		may=$may"  "$i
+		;;
+	6)
+		june=$june"  "$i
+		;;
+	7)
+		july=$july"  "$i
+		;;
+	8)
+		august=$august"  "$i
+		;;
+	9)
+		september=$september"  "$i
+		;;
+	11)
+		november=$november"  "$i
+		;;
+
+	*) december=$december"  "$i
+		;;
+	esac
 done
-for((i=0;i<11;i++))
-do
-	for((j=0;j<11-i-1;j++))
-	do
-		if [ ${arr[j]} -gt ${arr[$((j+1))]} ]
-		then
-			temp=${arr[$j]}
-			arr[$j]=${arr[$((j+1))]}
-			arr[$((j+1))]=$temp
-		fi
-	done
-done
-echo ${arr[@]}
-echo ${arr[1]} " , " ${arr[9]}
+echo "january :"$january
+echo "february :" $february
+echo "march :" $march
+echo "april :" $april
+echo "may :" $may
+echo "june :" $june
+echo "july :" $july
+echo "august :" $august
+echo "september :" $september
+echo "october :" $october
+echo "november :" $november
+echo "december :" $december
