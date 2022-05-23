@@ -1,8 +1,9 @@
 #! /bin/bash -x
-sum=0
-for((i=0;i<5;i++))
-do
-	value=$((RANDOM % 89 + 10))
-	sum=$(($sum+$value))
-done
-echo $sum
+
+coin=$((RANDOM % 2))
+if [ $coin -eq 0 ]
+then
+	echo "head"
+else
+	echo "tail"
+fi
