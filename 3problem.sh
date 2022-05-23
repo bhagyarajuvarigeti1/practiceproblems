@@ -1,18 +1,25 @@
 #! /bin/bash -x
 
-read -p "enter number " a
-flag=0
-for((i=2;i<=$(($a/2));i++))
+headc=1
+tailc=0
+i=0
+j=0
+while [ true ]
 do
-	if [ $(($a%$i)) -eq 0 ]
+	flip=$((RANDOM % 2))
+	if [ $flip -eq $headc ]
 	then
-		flag=1
+		i=$(($i+1))
+	else
+		j=$(($j+1))
+	fi
+	if [ $i -eq 11 ]
+	then
+		echo "HEad"
+		break
+	elif [ $j -eq 11 ]
+	then
+		echo "tail"
 		break
 	fi
 done
-if [ $flag -eq 1 ]
-then
-	echo "not prime"
-else
-	echo "prime"
-fi

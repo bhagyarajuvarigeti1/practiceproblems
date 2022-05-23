@@ -1,11 +1,12 @@
 #! /bin/bash -x
 
 
-read -p "enter the number" n
-for((i=1;i<=n;i++))
+read -p "enter the number between 1 to 100" n
+while [ true ]
 do
-	sum=$sum+1/$i 
+	n=$(($n/2))
+	if [ $n -eq 0 ]
+	then
+		break
+	fi
 done
-
-echo $sum
-
