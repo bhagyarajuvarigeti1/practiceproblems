@@ -1,22 +1,18 @@
 #! /bin/bash -x
 
 read -p "enter number " a
-
-case $a in
-	1)
-	echo "unit";;
-	10)
-	echo "ten";;
-	100)
-	echo "hundred";;
-	1000)
-	echo "thousand";;
-	10000)
-	echo "ten thousand";;
-	100000)
-	echo "one lakh";;
-	1000000)
-	echo "ten lakh";;
-	10000000)
-	echo "core";;
-esac
+flag=0
+for((i=2;i<=$(($a/2));i++))
+do
+	if [ $(($a%$i)) -eq 0 ]
+	then
+		flag=1
+		break
+	fi
+done
+if [ $flag -eq 1 ]
+then
+	echo "not prime"
+else
+	echo "prime"
+fi

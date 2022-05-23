@@ -1,20 +1,24 @@
 #! /bin/bash -x
 
-#a)
-read -p "enter the inch" inch
+read -p "enter number " x
+read -p "enter number " y
 
-ft=$(($inch/12))
+for((a=$x;a<=$y;a++))
+do
+	flag=
+	for((i=2;i<=$(($a/2));i++))
+	do
+	        if [ $(($a%$i)) -eq 0 ]
+	        then
+	                flag=1
+	                break
+	        fi
+	done
 
-echo $ft
-
-#b)
-
-read -p "enter length" l
-read -p "enter height" h
-area=$(($l*$h))
-echo $area
-
-#c)
-
-read -p "enter how many plots in acres" p
-plots=$(($area*$p))
+	if [ $flag -eq 1 ]
+	then
+	        echo  $a "not prime"
+	else
+	        echo $a "prime"
+	fi
+done

@@ -1,16 +1,13 @@
 #! /bin/bash -x
 
 read -p "enter the number " a
+ref=1
+sol=1
+for((i=2;i<=$a;i++))
+do
+	ref=$ref*$i
+	sol=$(($sol*$i))
+done
 
-read -p "enter the number " b
+echo $ref " = " $sol
 
-case $b in
-	1)
-	res=$(($a*12));;
-	2)
-	res=$(($a/12));;
-	3)
-	res=$(($a/3.281));;
-	4)
-	res=$(($a*3.281));;
-esac
