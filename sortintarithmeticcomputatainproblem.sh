@@ -30,4 +30,7 @@ do
 	done
 done
 echo ${dixt[@]}
-echo ${arr[@]}
+for((i=3;i>=0;i--))
+do
+	echo ${arr[$i]}
+done
