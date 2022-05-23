@@ -1,15 +1,22 @@
 #! /bin/bash -x
 
-a=$((RANDOM))
-if [ $(($a%4)) -eq $(($a%400)) ]
-then
-	echo "leap year"
-elif [ $(($a%100)) -eq 0 ]
-then 
-	echo "not leap year"
-elif [ $(($a%4)) -eq 0 ]
-then 
-	echo "leap year"
-else
-	echo "not leap year"
-fi
+read -p "enter number " a
+
+case $a in
+	1)
+	echo "unit";;
+	10)
+	echo "ten";;
+	100)
+	echo "hundred";;
+	1000)
+	echo "thousand";;
+	10000)
+	echo "ten thousand";;
+	100000)
+	echo "one lakh";;
+	1000000)
+	echo "ten lakh";;
+	10000000)
+	echo "core";;
+esac
