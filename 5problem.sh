@@ -1,11 +1,20 @@
 #! /bin/bash -x
 
-declare -a arr
-j=1
-for((i=0;i<9;i++))
-do
-	arr[$i]=$(($j*11))
-	j=$(($j+1))
-done
+#a)
+read -p "enter the inch" inch
 
-echo ${arr[@]}
+ft=$(($inch/12))
+
+echo $ft
+
+#b)
+
+read -p "enter length" l
+read -p "enter height" h
+area=$(($l*$h))
+echo $area
+
+#c)
+
+read -p "enter how many plots in acres" p
+plots=$(($area*$p))

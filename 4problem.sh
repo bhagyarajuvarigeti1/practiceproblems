@@ -1,7 +1,8 @@
 #! /bin/bash -x
-
-a=$((RANDOM))
-b=$((RANDOM))
-c=$((0-$a-$b))
-
-echo $a","$b","$c
+sum=0
+for((i=0;i<5;i++))
+do
+	value=$((RANDOM % 89 + 10))
+	sum=$(($sum+$value))
+done
+echo $sum
