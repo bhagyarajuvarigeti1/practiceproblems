@@ -1,13 +1,31 @@
 #! /bin/bash -x
 
-read -p "enter number" n
-ref=1
-for((i=0;i<n;i++))
-do
-	ref=$(($ref*2))
-	if [ $ref -eq 256 ]
-	then
-		break
-	fi
-done
+function degree(){
 
+	local n=$1
+	val=$n
+	case $n in
+		0)
+			degc=$n;;
+		100)
+			degc=$n;;
+		32)
+			degf=$n;;
+		212)
+			degf=$n;;
+	esac
+	case  $val in
+		0)
+			degf=$(($(($(($degc*9))/5))+32));;
+
+		100)
+			degf=$(($(($(($degc*9))/5))+32));;
+		32)
+			degc=$(($(($degf-32))*5/9));;
+		212)
+			degc=$(($(($degf-32))*5/9));;
+	esac
+}
+
+read -p "enter number" d
+degree $d

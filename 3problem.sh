@@ -1,25 +1,44 @@
 #! /bin/bash -x
 
-headc=1
-tailc=0
-i=0
-j=0
-while [ true ]
-do
-	flip=$((RANDOM % 2))
-	if [ $flip -eq $headc ]
+function prime(){
+	read -p "enter number " a
+
+	flag=0
+	for((i=2;i<=$(($a/2));i++))
+	do
+		if [ $(($a%$i)) -eq 0 ]
+		then
+			flag=1
+			break
+		fi
+	done
+	if [ $flag -eq 1 ]
 	then
-		i=$(($i+1))
+		echo "not prime"
 	else
-		j=$(($j+1))
+		echo "prime"
 	fi
-	if [ $i -eq 11 ]
+
+}
+
+function palindrome(){
+read -p "enter value " b
+	x=$b
+	res=0
+	while [ $b -gt 0 ]
+	do
+		res=$(($res*10))
+		res=$(($res+$(($b%10))))
+		b=$(($b/10))
+	done
+	if [ $res -eq $x ]
 	then
-		echo "HEad"
-		break
-	elif [ $j -eq 11 ]
-	then
-		echo "tail"
-		break
+		echo "palindrome"
+	else
+		echo "not palindrome"
 	fi
-done
+
+}
+
+
+palindrome

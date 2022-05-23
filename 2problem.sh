@@ -1,12 +1,36 @@
 #! /bin/bash -x
 
-
-read -p "enter the number between 1 to 100" n
-while [ true ]
-do
-	n=$(($n/2))
-	if [ $n -eq 0 ]
+function check(){
+	read -p	"enter one number " a
+	read -p "enter two number " b
+	ref=0
+	x=$a
+	y=$b
+	while [ $a -gt 0 ]
+	do
+		ref=$(($ref*10))
+		ref=$(($ref+$(($a%10))))
+		a=$(($a/10))
+	done
+	if [ $x -eq $ref ]
 	then
-		break
+		echo "palindrome"
+	else
+		echo "not palindrome"
 	fi
-done
+	ref=0
+	while [ $b -gt 0 ]
+	do
+		ref=$(($ref*10))
+		ref=$(($ref+$(($b%10))))
+		b=$(($b/10))
+	done
+	if [ $y -eq $ref ]
+	then
+		echo "palindrome"
+	else
+		echo "not palindrome"
+	fi
+}
+
+check
