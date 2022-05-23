@@ -1,26 +1,16 @@
 #! /bin/bash -x
 
-a=$((RANDOM))
-b=$((RANDOM))
-c=$((RANDOM))
+read -p "enter the number " a
 
-declare -a arr
-arr[0]=$(($a+$b*$c))
-arr[1]=$(($a%$b+$c))
-arr[2]=$(($a+$b/$c))
-arr[3]=$(($a*$b+$c))
+read -p "enter the number " b
 
-for((i=0;i<4;i++))
-do
-	for((j=0;j<4-1;j++))
-	do
-		if [ ${arr[$j]} -gt ${arr[$(($j+1))]} ]
-		then
-			temp=${arr[$j]}
-			arr[$j]=${arr[$(($j+1))]}
-			arr[$(($j+1))]=$temp
-		fi
-	done
-done
-echo ${arr[@]}
-echo ${arr[0]} " and " ${arr[3]}
+case $b in
+	1)
+	res=$(($a*12));;
+	2)
+	res=$(($a/12));;
+	3)
+	res=$(($a/3.281));;
+	4)
+	res=$(($a*3.281));;
+esac
